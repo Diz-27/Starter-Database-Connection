@@ -2,9 +2,20 @@
 declare(strict_types=1);
 
 // Step 1: require the database connection (includes/database.php)
-
+//require makes sure there isn't a collision with multiple people using the same database.
+require __DIR__ . '/includes/database.php';
+require __DIR__ . '/classes/Product.php';
 // Step 4: one product. Write the SELECT with a WHERE for product 3, then query() and fetch(PDO::FETCH_ASSOC)
 
+$sql = "Select products.productID, products.productCode, products.productName, products.description, products.listPrice, products.categoryID, categories.categoryName 
+from products, categories 
+where products.categoryID = categories.categoryID;";
+
+$statement = $db->query($sql);
+$row = $statement->fetch(PDO::FETCH_ASSOC);
+
+$product = Product::fromRow($row);
+var_dump($row);
 // Step 5: build a Product with Product::fromRow()
 ?>
 <!DOCTYPE html>
@@ -20,5 +31,13 @@ declare(strict_types=1);
     <p><a href="products.php">&larr; All products</a></p>
 
     <!-- Step 4: show the name, category, price, and description (description through nl2br(htmlspecialchars(...))) -->
+
+    <p><a href="products.php">&larr; All products</a></p>
+
+    <!-- Step 4: show the name, category, price, and description (description through nl2br(htmlspecialchars(...))) -->
+    <h1><?= htmlspecialchars($product->name) ?></h1>
+    <p><strong><?= htmlspecialchars($product->category) ?></strong> &middot; <?= $product->formattedPrice() ?></p>
+
+    <p><?= htmlspecialchars($product->description) ?></p>
 </body>
 </html>
