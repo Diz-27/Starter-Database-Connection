@@ -13,6 +13,7 @@ class Product
     public string $name;
     public string $description;
     private float $price;
+    
     public int $categoryId;
     public string $category;
 
