@@ -6,7 +6,7 @@ declare(strict_types=1);
 // every time the script ends. Step 5 changes this.
 class Product
 {
-    public static int $nextId = 1;
+    public static int $nextId = 1; //apparently we use this as a temporary, in-memory tracking during a single script execution
 
     public int $id;
     public string $code;
