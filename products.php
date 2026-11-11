@@ -53,7 +53,7 @@ $products = getProducts($db);
         </thead>
         <tbody>
             <!-- Step 3: one <tr> for each product, every value escaped with htmlspecialchars() -->
-                <!-- we are looping throught very value -->
+                <!-- we are looping through every value -->
                    <?php foreach ($products as $product): ?>
                 <tr>
                     <td><?= htmlspecialchars($product->code) ?></td>
