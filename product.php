@@ -28,7 +28,6 @@ var_dump($row);
     </style>
 </head>
 <body>
-    <p><a href="products.php">&larr; All products</a></p>
 
     <!-- Step 4: show the name, category, price, and description (description through nl2br(htmlspecialchars(...))) -->
 
