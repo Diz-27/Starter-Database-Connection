@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 // Step 1: connect with new PDO($dsn, $username, $password)
 
-$dsn = 'mysql:host=localhost;dbname=my_guitar_shop2;charset=utf8mb4';
+$dsn = 'mysql:host=localhost;dbname=my_guitar_shop3;charset=utf8mb4';
 $username = 'root';
 $password = '';
 // Step 2: wrap it in try/catch
